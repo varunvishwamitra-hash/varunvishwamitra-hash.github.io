@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun H V - Resume (ATS Optimized)</title>
+    <style>
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                margin: 0 !important;
+                padding: 20px !important;
+            }
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.5;
+            margin: 80px 40px 40px 40px; /* Increased top margin from 40px to 80px */
+            max-width: 800px;
+            position: relative;
+        }
+
+        /* Floating Actions Positioning */
+        .actions-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .no-print-toolbar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .btn {
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: #6366f1;
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+        }
+
+        .btn-primary:hover {
+            background: #4f46e5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 8px 16px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #1e293b;
+        }
+
+        header {
+            padding-top: 10px;
+        }
+        h1 {
+            font-size: 24pt;
+            margin-bottom: 5pt;
+            color: #000;
+        }
+        h2 {
+            font-size: 14pt;
+            border-bottom: 1px solid #ccc;
+            margin-top: 20pt;
+            padding-bottom: 2pt;
+            color: #000;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 12pt;
+            margin-bottom: 0px;
+        }
+        .contact {
+            font-size: 10pt;
+            margin-bottom: 20pt;
+        }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 2pt;
+        }
+        .item-subheader {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            margin-bottom: 5pt;
+        }
+        ul {
+            margin-top: 5pt;
+            padding-left: 15pt;
+            list-style-type: disc;
+        }
+        li {
+            margin-bottom: 4pt;
+            padding-left: 2pt;
+        }
+        .skills-list {
+            padding-left: 0;
+            list-style-type: none;
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+        .skills-list li {
+            margin-bottom: 2pt;
+            font-size: 10pt;
+            padding-left: 0;
+        }
+        .skills-list li:before {
+            content: "• ";
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Left Navigation -->
+    <div class="no-print-toolbar no-print">
+        <a href="https://varunvishwamitra-hash.github.io/" class="btn btn-secondary">← Back</a>
+    </div>
+
+    <!-- Top Right Download Button -->
+    <div class="actions-container no-print">
+        <button onclick="window.print()" class="btn btn-primary" title="Download as PDF">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+        </button>
+    </div>
+
+    <header>
+        <h1>Varun H V</h1>
+        <div class="contact">
+            Location: Bangalore, India | Phone: +91 8762227168 | Email: <a href="mailto:varun.vishwamitra@gmail.com" style="color: #0066cc; text-decoration: underline;">varun.vishwamitra@gmail.com</a> <br>
+            LinkedIn: <a href="https://www.linkedin.com/in/varun-h-v-b74514139/" style="color: #0066cc; text-decoration: underline;">linkedin.com/in/varun-h-v-b74514139/</a> | Portfolio: <a href="https://varunvishwamitra-hash.github.io/" style="color: #0066cc; text-decoration: underline; font-weight: bold;">varunvishwamitra-hash.github.io/</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p><strong>Engineering Manager (SRE & Platform)</strong> with 8+ years of experience building large-scale, self-healing distributed systems. Proven track record of reducing <strong>MTTR by 3x</strong>, optimizing cloud costs by <strong>91%</strong>, and leading reliability initiatives across <strong>1200+ services</strong>. Specialized in <strong>Kubernetes</strong>, <strong>Observability</strong>, and <strong>AI-driven Incident Management</strong> for mission-critical financial platforms serving millions of users across regions.</p>
+        <p style="font-size: 10pt; margin-top: 5pt;"><strong>Technologies:</strong> Kubernetes, AWS, Prometheus, Grafana, Terraform, Python, Go, Jaeger, Docker, Ansible, Jenkins.</p>
+        <p style="font-size: 10pt; margin-top: 1pt;"><strong>Domains:</strong> Distributed Systems, High Availability, Multi-Region Systems, Performance Engineering.</p>
+    </section>
+
+    <section>
+        <h2>Core Competencies</h2>
+        <ul class="skills-list">
+            <li>Site Reliability Engineering (SRE)</li>
+            <li>Engineering Management & Team Leadership</li>
+            <li>Kubernetes (PCI Compliance & Scaling)</li>
+            <li>Observability & Monitoring (Grafana, Jaeger, Prometheus)</li>
+            <li>Incident Management & Root Cause Analysis (RCA)</li>
+            <li>Cloud Cost Optimization & Cloud Governance</li>
+            <li>Automation (Python, Go, Bash, LLM APIs)</li>
+            <li>Infrastructure as Code (Terraform)</li>
+            <li>CI/CD Pipeline Engineering</li>
+            <li>Platform Reliability & Operational Excellence</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+
+        <div class="experience-item">
+            <div class="item-header">
+                <span>Zeta</span>
+                <span>Jan 2026 – Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>Engineering Manager - SRE</span>
+                <span>Bangalore, India</span>
+            </div>
+            <ul>
+                <li>Leading <strong>SRE strategy</strong> for 1200+ services across 15+ zones, ensuring multi-region availability for mission-critical banking systems serving millions of users.</li>
+                <li>Managing and mentoring a high-performing team of <strong>8+ SREs</strong>, improving operational efficiency while systematically reducing on-call burnout.</li>
+                <li>Driving <strong>AI-powered incident intelligence</strong> and observability roadmaps to slash MTTR and enhance system resilience for ZCC and HDFC Bank stakeholders.</li>
+                <li>Improved <strong>incident response efficiency by 3x</strong> through AI-driven automation and strategic observability enhancements.</li>
+                <li>Owning the platform engineering roadmap, production readiness, and organizational reliability standards across multiple business-critical SaaS modules.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item" style="margin-top: 15pt;">
+            <div class="item-header">
+                <span>Zeta</span>
+                <span>Mar 2024 – Feb 2026</span>
+            </div>
+            <div class="item-subheader">
+                <span>Lead Site Reliability Engineer</span>
+                <span>Bangalore, India</span>
+            </div>
+            <ul>
+                <li><strong>Owned end-to-end design and execution</strong> of <strong>Compass IQ</strong>, an AI-driven incident intelligence platform reducing MTTR from 15 minutes to under 2 minutes across 1,200+ service flows.</li>
+                <li>Built <strong>RootLens</strong>, an AI-powered RCA governance system that standardizes post-incident analysis using structured evaluation and automated feedback, improving RCA quality across teams.</li>
+                <li>Designed <strong>Cyclops</strong>, an AI-assisted frontend reliability system that detects broken user journeys (login, search, checkout) before impact, reducing detection time from 30–60 mins to near real-time.</li>
+                <li>Transformed the <strong>Olympus World Command Center (OWCC)</strong>, reducing operational noise from 350+ unhealthy components to near-zero, stabilizing the entire SaaS vertical footprint.</li>
+                <li>Drove <strong>Cloud Cost Optimization</strong> initiatives, achieving a <strong>91% reduction</strong> in S3 storage costs and implementing Kubecost for cross-team financial governance.</li>
+                <li>Led organizational escalations and high-stakes production readiness reviews for critical ZCC and tier-1 banking stakeholders.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item" style="margin-top: 15pt;">
+            <div class="item-header">
+                <span>Zeta</span>
+                <span>Dec 2021 – Mar 2024</span>
+            </div>
+            <div class="item-subheader">
+                <span>Senior Development Operations Engineer</span>
+                <span>Bangalore, India</span>
+            </div>
+            <ul>
+                <li>Engineered and scaled <strong>Kubernetes clusters</strong> (PCI and Non-PCI) supporting 1200+ service flows across multi-zone deployments.</li>
+                <li>Automated high-toil on-call workflows using <strong>Python</strong> and <strong>Go</strong>, saving 30+ engineering hours per month and improving developer velocity.</li>
+                <li>Built and scaled <strong>petabyte-scale CI/CD pipelines</strong> enabling zero-downtime deployments across complex distributed systems.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item" style="margin-top: 15pt;">
+            <div class="item-header">
+                <span>DataWeave</span>
+                <span>Sep 2019 – Dec 2021</span>
+            </div>
+            <div class="item-subheader">
+                <span>Senior DevOps Engineer (Promoted from DevOps Engineer)</span>
+                <span>Bangalore, India</span>
+            </div>
+            <ul>
+                <li>Managed high-scale data extraction infrastructure across <strong>Amazon Web Services (AWS)</strong>.</li>
+                <li>Scaled configuration management systems (Ansible) to handle thousands of concurrent nodes.</li>
+                <li>Implemented comprehensive monitoring and alerting using Prometheus and Grafana.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item" style="margin-top: 15pt;">
+            <div class="item-header">
+                <span>[24]7.ai</span>
+                <span>Jun 2018 – Sep 2019</span>
+            </div>
+            <div class="item-subheader">
+                <span>Member Technical Staff</span>
+                <span>Bangalore, India</span>
+            </div>
+            <ul>
+                <li>Collaborated on configuration management and continuous integration for customer engagement platforms.</li>
+                <li>Optimized build artifacts and deployment scripts for high-availability distributed systems.</li>
+                <li>Optimized build and deployment scripts for high-availability distributed systems.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item" style="margin-top: 15pt;">
+            <div class="item-header">
+                <span>Aurigo Software Technologies</span>
+                <span>Jun 2017 – Jun 2018</span>
+            </div>
+            <div class="item-subheader">
+                <span>Member Technical Staff</span>
+                <span>Bangalore, India</span>
+            </div>
+            <ul>
+                <li>Designed and maintained CI pipelines for cloud-based construction management software.</li>
+                <li>Supported infrastructure migrations and ensured build system stability for global engineering teams.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Founding Experience</h2>
+        <div class="experience-item">
+            <div class="item-header">
+                <span>Svasthyaminds</span>
+                <span>2023 – Present</span>
+            </div>
+            <div class="item-subheader">
+                <span>Founder & Lead Architect</span>
+                <span>Remote</span>
+            </div>
+            <ul>
+                <li>Founded and architected a <strong>B2B2C wellness platform</strong> leveraging AI-driven cognitive systems and binaural audio frameworks.</li>
+                <li>Designed scalable backend infrastructure architectures and premium user experience flows for digital wellness delivery at scale.</li>
+                <li>Built and launched scalable digital wellness platform supporting early-stage <strong>user adoption</strong> and B2B distribution experiments.</li>
+                <li>Leads product strategy, technical roadmap development, and go-to-market execution for high-fidelity wellness infrastructure.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Certifications</h2>
+        <ul>
+            <li>AWS Certified Solutions Architect – Associate (SAA-C02)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="experience-item">
+            <div class="item-header">
+                <span>Dayananda Sagar Institutions</span>
+                <span>2013 – 2017</span>
+            </div>
+            <div class="item-subheader">
+                <span>Bachelor of Engineering in Computer Science</span>
+                <span>Bangalore, India</span>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
