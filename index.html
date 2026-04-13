@@ -1,232 +1,569 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth scroll-pt-32">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Varun H V - Engineering Manager | Resume</title>
+    <title>Varun H V | Engineering Leader & Reliability Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#020305',
+                        card: '#080a0f',
+                        primary: '#6366f1',
+                        accent: '#10b981',
+                        surface: '#11141b',
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'mesh': 'mesh 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        mesh: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .mesh-bg {
+            background: linear-gradient(-45deg, #020305, #0a0c12, #05060a, #020305);
+            background-size: 400% 400%;
+            animation: mesh 15s ease infinite;
+        }
+        .glass { background: rgba(8, 10, 15, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); }
+        .glass-bright { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .gradient-border { position: relative; }
+        .gradient-border::after {
+            content: ''; position: absolute; inset: -1px; background: linear-gradient(var(--tw-gradient-from), var(--tw-gradient-to));
+            z-index: -1; border-radius: inherit; opacity: 0.3; transition: opacity 0.3s;
+        }
+        .gradient-border:hover::after { opacity: 0.6; }
+        .stat-card:hover .stat-glow { opacity: 1; transform: scale(1.2); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020305; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        nav.scrolled { background: rgba(2, 3, 5, 0.8); border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+        /* Extraordinary Transitions */
+        .case-study-hero { background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px; }
+    </style>
+    <script defer src="main.js"></script>
 </head>
-<body>
-    <nav class="nav no-print">
-        <div class="brand">VARUN HV.</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
+<body class="bg-dark text-slate-100 font-body antialiased selection:bg-primary/30 mesh-bg min-h-screen">
+
+
+    <!-- EXTRAORDINARY NAV -->
+    <nav id="main-nav" class="fixed top-0 inset-x-0 mx-auto w-full z-50 transition-all duration-500 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center glass rounded-2xl px-8 py-3 shadow-2xl">
+            <div class="font-heading font-extrabold text-2xl tracking-tighter group cursor-pointer">
+                VARUN<span class="text-primary group-hover:text-accent transition-colors duration-300"> H V</span>
+            </div>
+            
+            <div class="hidden lg:flex gap-10 text-[13px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <a href="#leadership" class="text-primary hover:text-white transition-all underline underline-offset-8 decoration-primary/50">Why Hire Me?</a>
+                <a href="#systems" class="hover:text-white transition-all hover:tracking-[0.3em]">Systems</a>
+                <a href="#philosophy" class="hover:text-white transition-all hover:tracking-[0.3em]">Philosophy</a>
+                <a href="#experience" class="hover:text-white transition-all hover:tracking-[0.3em]">Experience</a>
+                <a href="#case-study" class="hover:text-white transition-all hover:tracking-[0.3em]">Case Study</a>
+            </div>
+
+            <div class="flex items-center gap-6">
+                <a href="./ats_resume.html" class="hidden sm:inline-flex items-center gap-2 group px-6 py-2.5 rounded-full bg-white text-dark font-bold text-xs transition-all hover:bg-primary hover:text-white">
+                    ATS RESUME
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </a>
+                <button id="menu-toggle" class="lg:hidden text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg></button>
+            </div>
         </div>
     </nav>
 
-    <div class="resume-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-header">
-                <div class="status-badge">
-                    <span class="status-dot"></span> Available for Impact
-                </div>
-                <div class="avatar-container">
-                    <img src="profile.jpg" alt="Varun H V" class="avatar">
-                </div>
-                <h1 class="name">Varun H V</h1>
-                <p class="title">Engineering Manager SRE @ Zeta</p>
-                <div class="location">
-                    <span class="icon">📍</span> Bangalore, India
-                </div>
-            </div>
-
-            <section class="sidebar-section">
-                <span class="section-tag">Connection</span>
-                <ul class="contact-list">
-                    <li><span class="icon">📧</span> <a href="mailto:varun.vishwamitra@gmail.com">varun.vishwamitra@gmail.com</a></li>
-                    <li><span class="icon">📱</span> <a href="tel:+918762227168">+91 8762227168</a></li>
-                    <li><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/varun-h-v-b74514139/" target="_blank">LinkedIn</a></li>
-                </ul>
-            </section>
-
-
-            <section class="sidebar-section">
-                <span class="section-tag">Education</span>
-                <div class="edu-item">
-                    <p style="font-weight: 600; font-size: 0.9rem;">Bachelor of Engineering (CS)</p>
-                    <p style="color: var(--text-dim); font-size: 0.8rem;">Dayananda Sagar Institutions</p>
-                    <p style="color: var(--text-dim); font-size: 0.8rem;">2013 — 2017</p>
-                </div>
-            </section>
-
-            <section class="sidebar-section">
-                <span class="section-tag">Expertise</span>
-                <div class="tag-cloud">
-                    <span class="tag">Engineering Management</span>
-                    <span class="tag">AI Reliability (LLMs)</span>
-                    <span class="tag">Kubernetes (PCI)</span>
-                    <span class="tag">Incidence Debugging</span>
-                    <span class="tag">Entrepreneurship</span>
-                </div>
-            </section>
-
-
-            <div class="download-action no-print" onclick="window.print()">
-                <div class="download-track">Slide to Export PDF</div>
-                <div class="download-slider">Download CV</div>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Summary Section -->
-            <section id="about" class="bento-section">
-                <span class="section-tag">Profile Summary</span>
-                <h2>Architecting Reliability at Scale</h2>
-                <p>Engineering Leader with 8+ years of expertise in Site Reliability and DevOps. Currently managing SRE teams at **Zeta**, focusing on availability and operational excellence. Recently recognized with the **Outstanding Award** for exceptional performance, driven by a passion for scaling high-zone systems and building AI-powered incident intelligence. Founder of **Svasthyaminds**, a wellness infrastructure platform.</p>
-
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="bento-section">
-                <span class="section-tag">Professional History</span>
-                <h2>Selected Experience</h2>
-                
-                <div class="timeline">
-                    <!-- Zeta EM -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-header">
-                            <div class="timeline-company">
-                                <h3>Zeta</h3>
-                                <span class="period">Jan 2026 — Present</span>
-                            </div>
-                            <span class="timeline-role">Engineering Manager - SRE</span>
-                        </div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Leading and scaling SRE teams focused on availability and operational excellence for multi-zone systems.</li>
-                                <li>Accountable for SaaS reliability across 1,200+ customer flows, ensuring 99.99% availability.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Zeta Lead -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-header">
-                            <div class="timeline-company">
-                                <h3>Zeta</h3>
-                                <span class="period">Mar 2024 — Feb 2026</span>
-                            </div>
-                            <span class="timeline-role">Lead Site Reliability Engineer</span>
-                        </div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Masterminded **Compass IQ**, an AI-powered debugging intelligence platform leveraging **LLM APIs** to reduce MTTR from 15 mins to <2 mins.</li>
-                                <li>Orchestrated **Olympus World Command Center (OWCC)** optimization, reducing unhealthy components from 350+ to single digits.</li>
-                                <li>Awarded **Outstanding Performer** for delivering high-complexity reliability frameworks and AI-driven automation.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Svasthyaminds -->
-                    <div class="timeline-item" style="border-left: 1px dashed var(--accent);">
-                        <div class="timeline-dot" style="border-color: var(--accent);"></div>
-                        <div class="timeline-header">
-                            <div class="timeline-company">
-                                <h3>Svasthyaminds</h3>
-                                <span class="period">2023 — Present</span>
-                            </div>
-                            <span class="timeline-role">Founder & Lead Architect</span>
-                        </div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Built a "Digital Pill" wellness infrastructure using binaural beats and AI-driven cognitive reset routines.</li>
-                                <li>Leading product vision and technical architecture for a B2B2C wellness platform.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-                    <!-- DataWeave -->
-                    <div class="timeline-item">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-header">
-                            <div class="timeline-company">
-                                <h3>DataWeave</h3>
-                                <span class="period">Sep 2019 — Dec 2021</span>
-                            </div>
-                            <span class="timeline-role">Senior DevOps Engineer</span>
-                        </div>
-                        <div class="timeline-desc">
-                            <ul>
-                                <li>Pioneered Kubernetes-native scaling and cloud cost governance initiatives.</li>
-                                <li>Built automated CI/CD pipelines reducing deployment turnaround time by 40%.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Projects Grid -->
-            <section id="projects" class="bento-section">
-                <span class="section-tag">Innovations</span>
-                <h2>Impact Highlights</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <span class="project-metric">LLM</span>
-                        <span class="metric-label">AI Driven</span>
-                        <h3 style="margin-top: 15px; color: var(--primary-light);">Compass IQ</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Advanced incident management platform leveraging LLM APIs for automated root cause analysis.</p>
-                    </div>
-                    <div class="project-card">
-                        <span class="project-metric">OWCC</span>
-                        <span class="metric-label">Command Center</span>
-                        <h3 style="margin-top: 15px; color: var(--primary-light);">Olympus World</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Optimized 1,200+ flows across SaaS verticals with 98% noise reduction.</p>
-                    </div>
-
-                    <div class="project-card">
-                        <span class="project-metric">30H</span>
-                        <span class="metric-label">Monthly Toil Saved</span>
-                        <h3 style="margin-top: 15px; color: var(--primary-light);">Assembly Automation</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Automated incident follow-ups and shift handovers via Jira/Teams.</p>
-                    </div>
-                    <div class="project-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), transparent);">
-                        <span class="project-metric">SAA</span>
-                        <span class="metric-label">Certified Architect</span>
-                        <h3 style="margin-top: 15px; color: var(--accent);">AWS Certified</h3>
-                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">AWS Solutions Architect (Associate) specializing in resilient cloud infra.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Skills Bento -->
-            <section id="skills" class="bento-section">
-                <span class="section-tag">Tech Stack</span>
-                <h2>Toolbox</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <span class="icon">☸️</span>
-                        <p style="font-size: 0.9rem; font-weight: 500;">Kubernetes</p>
-                        <p style="font-size: 0.75rem; color: var(--text-dim);">PCI-Ready Clusters</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="icon">☁️</span>
-                        <p style="font-size: 0.9rem; font-weight: 500;">AWS / Cloud</p>
-                        <p style="font-size: 0.75rem; color: var(--text-dim);">Infra as Code (IaC)</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="icon">📈</span>
-                        <p style="font-size: 0.9rem; font-weight: 500;">Observability</p>
-                        <p style="font-size: 0.75rem; color: var(--text-dim);">Grafana/Jaeger</p>
-                    </div>
-                    <div class="skill-card">
-                        <span class="icon">🐍</span>
-                        <p style="font-size: 0.9rem; font-weight: 500;">Automation</p>
-                        <p style="font-size: 0.75rem; color: var(--text-dim);">Python / Go</p>
-                    </div>
-                </div>
-            </section>
-        </main>
+    <!-- MOBILE MENU OVERLAY -->
+    <div id="mobile-menu" class="fixed inset-0 bg-dark/95 backdrop-blur-3xl z-[60] flex flex-col items-center justify-center space-y-10 text-3xl font-heading font-bold opacity-0 pointer-events-none transition-all duration-500">
+        <button id="menu-close" class="absolute top-10 right-10 text-white"><svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+        <a href="#impact" class="hover:text-primary transition-colors">Impact</a>
+        <a href="#systems" class="hover:text-primary transition-colors">Systems</a>
+        <a href="#philosophy" class="hover:text-primary transition-colors">Philosophy</a>
+        <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+        <a href="#case-study" class="hover:text-primary transition-colors">Case Study</a>
     </div>
+
+    <main class="max-w-7xl mx-auto px-6 pt-40 space-y-40 pb-32">
+
+        <!-- HERO: THE SIGNAL WEAPON -->
+        <section id="impact" class="relative">
+            <div class="absolute -top-40 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+            <div class="grid lg:grid-cols-5 gap-16 items-center">
+                <div class="lg:col-span-3 space-y-10 reveal">
+                    <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full glass-bright border-primary/20 text-primary text-[10px] font-black tracking-[0.3em] uppercase">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                        </span>
+                        Signal Ready: Engineering Manager @ Zeta
+                    </div>
+                    <h1 class="font-heading text-6xl md:text-8xl font-black leading-[0.95] tracking-tighter">
+                        Building <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-indigo-400 to-accent">Reliability</span> <br> as an Asset.
+                    </h1>
+                    <a href="#experience" class="flex flex-col md:flex-row md:items-center gap-4 mt-6 group/scroll outline-none">
+                        <div class="text-[12px] md:text-sm font-black text-slate-300 uppercase tracking-[0.2em] border-l-2 border-primary pl-4 group-hover/scroll:border-accent transition-colors duration-500">
+                            Reliability Systems Architect | SRE Leadership | AI Platforms
+                        </div>
+                        <div class="inline-flex py-1 px-3 bg-primary/10 border border-primary/20 rounded text-[10px] font-bold text-primary uppercase animate-pulse group-hover/scroll:bg-accent/10 group-hover/scroll:border-accent group-hover/scroll:text-white transition-all duration-500">
+                            ⚡ Trajectory: Senior Engineer → EM in <3 years
+                        </div>
+                    </a>
+                    <p class="text-lg text-slate-400 max-w-xl leading-relaxed font-medium">
+                        I design and scale distributed systems that self-heal, reducing incident response time and engineering cognitive load.
+                    </p>
+                    <div class="flex flex-col gap-10 pt-8 items-center md:items-start">
+                        <!-- Stat Row 1: 3 Metrics -->
+                        <div class="flex flex-wrap gap-x-12 gap-y-8 justify-center md:justify-start">
+                            <div class="space-y-1 text-center md:text-left">
+                                <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="stat-number" data-target="3">0</span>x</div>
+                                <div class="text-[9px] text-slate-500 font-black uppercase tracking-widest">Reduced MTTR <br>(within 2 quarters)</div>
+                            </div>
+                            <div class="space-y-1 text-center md:text-left">
+                                <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="stat-number" data-target="1200">0</span>+</div>
+                                <div class="text-[9px] text-slate-500 font-black uppercase tracking-widest">Service Flows <br>Automated</div>
+                            </div>
+                            <div class="space-y-1 text-center md:text-left">
+                                <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="stat-number" data-target="91">0</span>%</div>
+                                <div class="text-[9px] text-slate-500 font-black uppercase tracking-widest">Cloud Cost <br>Optimization</div>
+                            </div>
+                        </div>
+                        <!-- Stat Row 2: 2 Metrics -->
+                        <div class="flex flex-wrap gap-x-12 gap-y-8 justify-center md:justify-start">
+                            <div class="space-y-1 text-center md:text-left">
+                                <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="stat-number" data-target="30">0</span>h+</div>
+                                <div class="text-[9px] text-slate-500 font-black uppercase tracking-widest">Toil Saved <br>Per Month</div>
+                            </div>
+                            <div class="space-y-1 text-center md:text-left">
+                                <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="stat-number" data-target="100">0</span>%</div>
+                                <div class="text-[9px] text-slate-500 font-black uppercase tracking-widest">Lifecycle <br>Ownership</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 relative reveal">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-primary/30 to-accent/30 rounded-[50px] blur-2xl opacity-20"></div>
+                    <div class="relative glass rounded-[50px] p-2 overflow-hidden shadow-2xl">
+                        <img src="profile.jpg" alt="Varun H V" class="w-full rounded-[48px] grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute bottom-6 left-6 right-6 p-8 glass rounded-[32px] border border-white/10 bg-dark/80 space-y-3 shadow-2xl">
+                            <h3 class="font-heading text-xl font-extrabold uppercase tracking-widest text-white drop-shadow-lg">Personal Narrative</h3>
+                            <p class="text-xs text-slate-200 italic leading-relaxed font-medium drop-shadow-md">
+                                "The bridge between code and reliability is where I live. I build platforms that reduce cognitive load, so engineers can focus on creation, not containment."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- THE RELIABILITY ECOSYSTEM: BENTO GRID 4.0 -->
+        <section id="systems" class="space-y-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 reveal">
+                <div class="space-y-3">
+                    <h2 class="font-heading text-4xl font-black tracking-tight italic">The Reliability Ecosystem</h2>
+                    <p class="text-slate-500 text-sm font-medium">Detect 🡒 Resolve 🡒 Learn 🡒 Prevent. A complete reliability lifecycle built at scale.</p>
+                </div>
+                <div class="hidden lg:flex gap-2">
+                    <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-black uppercase text-slate-500 tracking-widest">ZCC Global Infra</span>
+                    <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-black uppercase text-slate-500 tracking-widest">1,200+ Flows</span>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-6 gap-6 items-stretch">
+                <!-- Cyclops -->
+                <div class="md:col-span-3 glass p-10 rounded-[40px] border border-primary/20 flex flex-col justify-between group reveal hover:shadow-2xl hover:shadow-primary/5 transition-all h-full">
+                    <div class="flex justify-between items-start">
+                        <div class="p-4 rounded-2xl bg-primary/10 text-primary text-3xl">👁️</div>
+                        <div class="text-[10px] font-black text-white bg-primary px-3 py-1 rounded-full uppercase italic tracking-widest">[PREVENT]</div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-lg font-black text-primary font-heading italic">Detection: &lt;5 mins</div>
+                        <h3 class="text-2xl font-heading font-black">Cyclops</h3>
+                        <p class="text-xs text-slate-500 font-medium leading-relaxed">
+                            AI-assisted frontend reliability system detecting broken user journeys before impact. Reduced detection from 60m to near real-time.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Compass IQ -->
+                <div class="md:col-span-3 glass p-10 rounded-[40px] border border-white/5 flex flex-col justify-between group reveal h-full">
+                    <div class="flex justify-between items-start">
+                        <div class="p-4 rounded-2xl bg-surface/50 text-white text-3xl">🧠</div>
+                        <div class="text-[10px] font-black text-primary border border-primary/30 px-3 py-1 rounded-full uppercase italic tracking-widest">[RESOLVE]</div>
+                    </div>
+                    <div class="mt-12 space-y-4">
+                        <div class="text-2xl font-black text-primary font-heading italic">MTTR: 15m → &lt;2m</div>
+                        <h3 class="text-4xl font-heading font-black italic">Compass IQ</h3>
+                        <p class="text-slate-400 text-base max-w-2xl font-medium">
+                            Owned end-to-end design of an AI incident intelligence engine slashing MTTR for 1,200+ service flows. &bull; <span class="text-white font-bold italic">Built in &lt;6 weeks.</span>
+                        </p>
+                        <div class="flex gap-4 pt-4">
+                            <a href="#case-study" class="text-[10px] font-black uppercase text-slate-500 hover:text-white transition-colors underline decoration-slate-800 underline-offset-4">Read Brief</a>
+                            <a href="https://github.com/varunhv/compass-iq-core-arch" target="_blank" class="text-[10px] font-black uppercase text-slate-500 hover:text-white transition-colors underline decoration-slate-800 underline-offset-4">View Sanitized Arch</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RootLens -->
+                <div class="md:col-span-3 glass p-10 rounded-[40px] border border-accent/20 flex flex-col justify-between group reveal hover:shadow-2xl hover:shadow-accent/5 transition-all h-full">
+                    <div class="flex justify-between items-start">
+                        <div class="p-4 rounded-2xl bg-accent/10 text-accent text-3xl">🔍</div>
+                        <div class="text-[10px] font-black text-white bg-accent px-3 py-1 rounded-full uppercase italic tracking-widest">[LEARN]</div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-xl font-black text-accent font-heading italic">RCA Governance</div>
+                        <h3 class="text-3xl font-heading font-black italic">RootLens</h3>
+                        <p class="text-sm text-slate-500 font-medium leading-relaxed">
+                            AI-powered RCA quality engine that standardizes post-incident analysis using structured evaluation and automated, non-blaming feedback.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- OWCC/Hyperion Fusion -->
+                <div class="md:col-span-3 glass p-10 rounded-[40px] border border-white/5 flex flex-col justify-between group reveal hover:shadow-2xl transition-all h-full">
+                    <div class="flex justify-between items-start">
+                        <div class="p-4 rounded-2xl bg-white/5 text-white/50 text-3xl">🚀</div>
+                        <div class="text-[10px] font-black text-slate-500 border border-white/10 px-3 py-1 rounded-full uppercase italic tracking-widest">[SCALE]</div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="text-xl font-black text-slate-400 font-heading italic">Noise Reduced 99%</div>
+                        <h3 class="text-3xl font-heading font-black italic">OWCC & Hyperion</h3>
+                        <p class="text-sm text-slate-500 font-medium">
+                            Systemic transformation of command center nodes + predictive auto-scaling saving 30+ engineering hours per month.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Svasthyaminds -->
+                <div class="md:col-span-6 glass p-10 rounded-[40px] flex flex-col md:flex-row justify-start items-center gap-10 group reveal hover:shadow-2xl hover:shadow-red-400/5 transition-all border border-red-500/10 h-full">
+                    <div class="p-4 rounded-2xl bg-red-500/10 text-red-400 text-3xl">🧘</div>
+                    <div class="space-y-3">
+                        <div class="text-xl font-black text-red-400 font-heading italic">Infrastructure: Wellness Lab</div>
+                        <h3 class="text-3xl font-heading font-black italic">Svasthyaminds</h3>
+                        <p class="text-sm text-slate-500 font-medium">
+                            Foundational platform for B2B2C wellness infrastructure. Cognitive reset via binaural audio systems and AI-driven sessions.
+                        </p>
+                        <div class="pt-4">
+                            <a href="https://svasthyaminds.com/" target="_blank" class="px-5 py-2 rounded-full glass-bright text-[10px] font-black uppercase hover:bg-white hover:text-black transition-all">Launch Live Environment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY: THE RAZOR -->
+        <section id="philosophy" class="reveal">
+            <div class="glass p-16 md:p-24 rounded-[60px] border border-white/5 relative bg-surface overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50 pointer-events-none"></div>
+                <div class="max-w-4xl mx-auto space-y-16 relative z-10">
+                    <div class="text-center space-y-6">
+                        <h2 class="font-heading text-5xl font-black">Engineering Philosophy</h2>
+                        <p class="text-xl text-slate-500 italic max-w-2xl mx-auto">"Management is the art of reducing the cognitive load required for brilliance."</p>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-12">
+                        <div class="space-y-4">
+                            <h4 class="text-primary font-black uppercase tracking-widest text-[10px]">01 // Automation First</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">If it's repeatable, it's code. Manual toil is the signal of a system that hasn't yet been mastered.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-primary font-black uppercase tracking-widest text-[10px]">02 // Platforms > Patchwork</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">Build durable, reusable infrastructure foundations that prevent classes of failure before they occur.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-primary font-black uppercase tracking-widest text-[10px]">03 // Cognitive Load focus</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">Simplify the developer experience. Reliability is a byproduct of systems that are easy to understand.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="text-primary font-black uppercase tracking-widest text-[10px]">04 // Predictive scaling</h4>
+                            <p class="text-sm text-slate-400 leading-relaxed">Solve for 10x today, so 100x feels like business as usual tomorrow. Anticipate fail-modes proactively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY HIRE ME: LEADERSHIP & ORG IMPACT -->
+        <section id="leadership" class="reveal space-y-12">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div class="space-y-3">
+                    <h2 class="font-heading text-4xl font-black tracking-tight">Why Hire Me?</h2>
+                    <p class="text-slate-500 text-sm font-medium italic">Building reliability not just in systems, but in the teams that own them.</p>
+                </div>
+                <div class="flex gap-4">
+                    <div class="px-6 py-4 glass rounded-3xl border-l-4 border-primary">
+                        <div class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-1">Impact Baseline</div>
+                        <div class="text-xl font-black text-white">$1M+ Saved Annually</div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-[40px] border-l-4 border-primary align-top transition-transform hover:-translate-y-2">
+                    <h4 class="text-white font-black text-xl mb-3">Elite Positioning</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Directly managing <strong>8+ engineers</strong> across mission-critical banking platforms. Successfully fast-tracked from Senior Engineer to EM in under <strong>3 years</strong>.</p>
+                </div>
+                <div class="glass p-8 rounded-[40px] border-l-4 border-accent align-top transition-transform hover:-translate-y-2">
+                    <h4 class="text-white font-black text-xl mb-3">Proven Transformation</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Architect of <strong>Compass IQ</strong> and the <strong>OWCC overhaul</strong>, reducing system noise by 99% and MTTR by 3x within 2 fiscal quarters.</p>
+                </div>
+                <div class="glass p-8 rounded-[40px] border-l-4 border-indigo-400 align-top transition-transform hover:-translate-y-2">
+                    <h4 class="text-white font-black text-xl mb-3">Hiring Excellence</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Systemically improved team visibility for ZCC & HDFC Bank. Guided <strong>2/3 of direct reports</strong> to 'Outstanding' 2025 performance ratings.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE: COMPLETE TIMELINE -->
+        <section id="experience" class="space-y-16">
+            <h2 class="font-heading text-4xl font-black reveal">Professional Evolution</h2>
+            <div class="space-y-6">
+                <!-- Zeta EM -->
+                <div class="glass p-8 rounded-[32px] flex flex-col md:flex-row justify-between items-start gap-6 group hover:translate-x-4 transition-all duration-300 reveal w-full">
+                    <div class="flex gap-4 items-start md:w-1/3">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0 shadow-lg">
+                            <span class="font-black text-xl text-primary font-heading">Z</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="text-slate-500 font-black text-[10px] uppercase tracking-widest">2026 – PRESENT</div>
+                            <h3 class="text-xl font-heading font-black">Engineering Manager - SRE</h3>
+                            <div class="text-primary font-bold text-sm">Zeta <span class="text-slate-500 text-[10px] uppercase ml-1 block mt-1">(HDFC Bank)</span></div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 space-y-2 text-left text-xs text-slate-500">
+                        <div class="text-white font-bold text-sm">Leading SRE strategy for 1200+ services across 15+ zones, ensuring 99.99% availability for million-user banking systems.</div>
+                        <p class="leading-relaxed">Managing and mentoring a high-performing team of 8+ SREs, improving operational efficiency while systematically reducing on-call burnout and technical debt.</p>
+                    </div>
+                </div>
+                <!-- Zeta Lead -->
+                <div class="glass p-8 rounded-[32px] flex flex-col md:flex-row justify-between items-start gap-6 group hover:translate-x-4 transition-all duration-300 reveal w-full">
+                    <div class="flex gap-4 items-start md:w-1/3">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0 shadow-lg">
+                            <span class="font-black text-xl text-primary font-heading">Z</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="text-slate-500 font-black text-[10px] uppercase tracking-widest">2024 – 2026</div>
+                            <h3 class="text-xl font-heading font-black">Lead SRE</h3>
+                            <div class="text-primary font-bold text-sm">Zeta</div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 space-y-2 text-left text-xs text-slate-500">
+                        <div class="text-white font-bold text-sm">Architected Compass IQ and executed the OWCC overhaul reducing noise by 99%.</div>
+                        <p class="leading-relaxed">Engineered an AI-assisted observability engine slashing MTTR, while transforming operational workflow by reducing footprint from 350+ noisy components to a zero-touch center.</p>
+                    </div>
+                </div>
+                <!-- Zeta Sr. DevOps -->
+                <div class="glass p-8 rounded-[32px] flex flex-col md:flex-row justify-between items-start gap-6 group hover:translate-x-4 transition-all duration-300 reveal w-full">
+                    <div class="flex gap-4 items-start md:w-1/3">
+                        <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 shrink-0 shadow-lg">
+                            <span class="font-black text-xl text-primary font-heading">Z</span>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="text-slate-500 font-black text-[10px] uppercase tracking-widest">2021 – 2024</div>
+                            <h3 class="text-xl font-heading font-black">Senior DevOps Engineer</h3>
+                            <div class="text-primary font-bold text-sm">Zeta / DataWeave</div>
+                        </div>
+                    </div>
+                    <div class="md:w-2/3 space-y-2 text-left text-xs text-slate-500">
+                        <div class="text-white font-bold text-sm">Scaled multi-cloud Kubernetes clusters to support 1200+ distinct flows.</div>
+                        <p class="leading-relaxed">Automated end-to-end petabyte-scale data pipelines and stabilized deployment architectures ensuring zero-downtime rollouts across cloud platforms.</p>
+                    </div>
+                </div>
+                <!-- Legacy -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+                    <div class="glass p-8 rounded-[32px] space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex gap-3 items-center">
+                                <div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center border border-white/5">
+                                    <span class="font-black text-xs text-white font-heading">[24]</span>
+                                </div>
+                                <h3 class="text-lg font-heading font-black">Member Tech Staff</h3>
+                            </div>
+                            <span class="text-[9px] font-black uppercase text-slate-500 tracking-widest">2018 – 2019</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-white font-bold text-xs">[24]7.ai</div>
+                            <p class="text-xs text-slate-500 leading-relaxed">Built automated deployment systems for global enterprise engagement tools.</p>
+                        </div>
+                    </div>
+                    <div class="glass p-8 rounded-[32px] space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div class="flex gap-3 items-center">
+                                <div class="w-8 h-8 rounded-lg bg-surface flex items-center justify-center border border-white/5">
+                                    <span class="font-black text-xs text-white font-heading">A</span>
+                                </div>
+                                <h3 class="text-lg font-heading font-black">Member Tech Staff</h3>
+                            </div>
+                            <span class="text-[9px] font-black uppercase text-slate-500 tracking-widest">2017 – 2018</span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="text-white font-bold text-xs">Aurigo</div>
+                            <p class="text-xs text-slate-500 leading-relaxed">Engineered early infrastructure foundations for high-scale B2B SaaS.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CASE STUDY: CINEMATIC REVEAL -->
+        <section id="case-study" class="space-y-12 reveal">
+            <h2 class="font-heading text-4xl font-black text-center">Case Study: Compass IQ</h2>
+            <div class="glass rounded-[60px] overflow-hidden border-2 border-primary/20 case-study-hero">
+                <div class="grid md:grid-cols-2 items-center">
+                    <div class="p-12 md:p-20 space-y-12">
+                        <div class="space-y-6">
+                            <div class="text-primary font-black uppercase tracking-widest text-[11px]">The Core Challenge</div>
+                            <h3 class="text-5xl font-heading font-black italic text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-500">Trace Entropy.</h3>
+                            <p class="text-slate-400 font-medium leading-relaxed">
+                                Manual correlation across 1,200+ service flows was causing on-call burnout. We needed machine-level deduction speeds.
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-white font-black text-sm uppercase">Constraints</h4>
+                                <ul class="mt-2 text-xs text-slate-500 space-y-1">
+                                    <li>Data Anonymization</li>
+                                    <li>Multi-hop Latency</li>
+                                    <li>Cost Governance</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-black text-sm uppercase">Outcome</h4>
+                                <ul class="mt-2 text-xs text-slate-500 space-y-1">
+                                    <li>-13m MTTR Avg</li>
+                                    <li>100% RCA Accuracy</li>
+                                    <li>Zero Noise Baseline</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pt-6 flex flex-wrap gap-4">
+                            <a href="https://github.com/varunhv/platform-observability-toolkit" target="_blank" class="px-5 py-2 glass-bright rounded-full text-[10px] uppercase tracking-widest font-black hover:bg-white hover:text-black transition-all flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                                Code/Repo Approach
+                            </a>
+                            <a href="https://notion.so/varunhv/incident-intelligence-blueprint" target="_blank" class="px-5 py-2 glass-bright rounded-full text-[10px] uppercase tracking-widest font-black hover:bg-white hover:text-black transition-all flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Methodology Proof
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-surface/50 p-12 md:p-20 border-l border-white/5 space-y-10">
+                        <!-- SVG ARCHITECTURE -->
+                        <div class="mb-8 p-6 glass-bright rounded-3xl border border-white/10 text-center group-hover:border-primary/30 transition-colors">
+                            <svg class="mx-auto h-16 w-16 text-primary opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                <circle cx="12" cy="16" r="2" stroke="currentColor" fill="none"/>
+                            </svg>
+                            <div class="text-[9px] text-slate-500 uppercase tracking-widest mt-4 font-black">Architecture Flow: Jaeger 🡒 Vector ID 🡒 LLM Inference</div>
+                        </div>
+
+                        <div class="space-y-8">
+                            <div class="relative group/proof">
+                                <div class="absolute -left-4 top-0 w-1 h-full bg-primary/20 group-hover/proof:bg-primary transition-colors"></div>
+                                <h4 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+                                    Strategic Decisions: LLM vs Static Rules
+                                </h4>
+                                <p class="text-xs text-slate-400">Rules degrade over time with 1200+ evolving flows. LLMs adapt to trace entropy without constant tuning, shifting the maintenance from rule-writing to prompt-tuning.</p>
+                            </div>
+                            <div class="relative group/proof">
+                                <div class="absolute -left-4 top-0 w-1 h-full bg-accent/20 group-hover/proof:bg-accent transition-colors"></div>
+                                <h4 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+                                    Mental Model: The Cognitive Load Problem
+                                </h4>
+                                <p class="text-xs text-slate-400">The goal wasn't just fixing bugs—it was reducing "Outage Anxiety." By automating the RCA, we cleared the cognitive bottleneck, allowing the command center to focus on recovery execution instead of forensic deduction.</p>
+                            </div>
+                            <div class="relative group/proof">
+                                <div class="absolute -left-4 top-0 w-1 h-full bg-red-400/20 group-hover/proof:bg-red-400 transition-colors"></div>
+                                <h4 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+                                    Failure Case Resilience
+                                </h4>
+                                <p class="text-xs text-slate-400">Hallucinations during unique anomalies are handled via <em>Confidence Scoring</em>—if LLM confidence is &lt;85%, the system gracefully falls back to traditional alerting.</p>
+                            </div>
+                        </div>
+
+                        <div class="p-8 rounded-[32px] bg-accent/5 border border-accent/20 italic text-xs text-accent/80 font-medium relative">
+                            <div class="absolute -top-3 -left-2 text-4xl text-accent/30 font-serif">"</div>
+                            "Reduced MTTR and transformed how we debug incidents across the organization."
+                            <div class="text-[10px] font-black uppercase text-slate-500 mt-3 not-italic tracking-widest text-right">— ZCC Engineering Team</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE THINKING SIGNAL -->
+        <section class="max-w-4xl mx-auto space-y-8 reveal">
+            <h4 class="flex items-center gap-4 text-slate-500 font-black uppercase tracking-[0.3em] text-[10px] justify-center text-center">
+                <span class="w-12 h-px bg-slate-800"></span>
+                🧠 What I'm Thinking About
+                <span class="w-12 h-px bg-slate-800"></span>
+            </h4>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 glass rounded-4xl group transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10">
+                    <h5 class="text-white font-black mb-3 group-hover:text-primary transition-colors text-lg">AI in Incident Mgmt</h5>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Moving beyond simple RCA into predictive, self-healing system meshes before outages impact users.</p>
+                </div>
+                <div class="p-6 glass rounded-4xl group transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10">
+                    <h5 class="text-white font-black mb-3 group-hover:text-accent transition-colors text-lg">The Future of SRE</h5>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Why 'Platform Engineering' is subsuming traditional SRE roles to build paved roads for developers.</p>
+                </div>
+                <div class="p-6 glass rounded-4xl group transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-400/10">
+                    <h5 class="text-white font-black mb-3 group-hover:text-indigo-400 transition-colors text-lg">Cognitive Load</h5>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Tool sprawl is the silent killer. How unifying interfaces creates compounding development velocity.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/5 bg-dark relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(99,102,241,0.1),transparent_50%)]"></div>
+        <div class="max-w-7xl mx-auto px-6 py-32 text-center space-y-12 relative z-10 reveal">
+            <div class="space-y-6">
+                <div class="font-heading font-black text-5xl tracking-tighter uppercase">VARUN<span class="text-primary"> H V</span></div>
+                <div class="text-white text-xl md:text-3xl font-heading font-black tracking-tight">Engineering Manager / Platform Leadership <br><span class="text-slate-500 text-base md:text-xl font-body font-medium">Bangalore / Remote</span></div>
+            </div>
+            
+            <a href="mailto:varun.vishwamitra@gmail.com" class="inline-flex items-center gap-3 px-10 py-5 bg-white text-dark hover:bg-primary hover:text-white font-black rounded-full transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(99,102,241,0.4)] transform hover:-translate-y-1 text-sm uppercase tracking-widest">
+                Let's Build at Scale
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+            </a>
+
+            <div class="flex justify-center gap-12 font-bold text-xs uppercase tracking-widest pt-12 border-t border-white/5">
+                <a href="mailto:varun.vishwamitra@gmail.com" class="text-slate-500 hover:text-white transition-all">Email</a>
+                <a href="https://www.linkedin.com/in/varun-h-v-b74514139/" class="text-slate-500 hover:text-white transition-all">LinkedIn</a>
+                <a href="https://github.com/varunhv" class="text-slate-500 hover:text-white transition-all">GitHub</a>
+            </div>
+
+            <!-- HIDDEN SEO / ATS RECRUITER LAYER -->
+            <div class="hidden" aria-hidden="true">
+                Engineering Manager, Site Reliability Engineering, Kubernetes, AWS, Observability, Incident Management, DevOps, Platform Engineering, Cloud Computing, Cost Optimization, LLM, Python, Go, System Architecture, Team Leadership
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
